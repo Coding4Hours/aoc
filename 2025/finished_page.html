@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="utf-8" />
+	<title>You have completed Advent of Code! - Advent of Code 2025</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Nova+Script&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+		body {
+			background: #0f0f23;
+			/*337 x 5*/
+			color: #cccccc;
+			font-family: "Source Code Pro", monospace;
+			font-weight: 300;
+			font-size: 14pt;
+			min-width: 60em;
+		}
+
+		img {
+			border: 0;
+		}
+
+		a {
+			outline: 0;
+		}
+
+		main,
+		figure,
+		figcaption {
+			display: block;
+		}
+
+		pre,
+		code {
+			font-family: "Source Code Pro", monospace;
+		}
+
+		header,
+		main {
+			-webkit-text-size-adjust: none;
+		}
+
+		a {
+			text-decoration: none;
+			color: #009900;
+		}
+
+		a:hover,
+		a:focus {
+			color: #99ff99;
+		}
+
+		h1,
+		h2 {
+			font-size: 1em;
+			font-weight: normal;
+		}
+
+		code {
+			position: relative;
+			display: inline-block;
+			margin: 0;
+			padding: 0;
+		}
+
+		code:before {
+			z-index: -1;
+			content: "";
+			position: absolute;
+			display: block;
+			left: -2px;
+			right: -2px;
+			top: 3px;
+			bottom: 0px;
+			border: 1px solid #333340;
+			background: #10101a;
+		}
+
+		pre.wrap {
+			max-width: 100%;
+			white-space: pre-wrap;
+		}
+
+		.quiet {
+			opacity: .5;
+		}
+
+		p.wrap {
+			width: 45em;
+		}
+
+		.hidden-until-hover {
+			border: 1px dotted gray;
+			overflow: hidden;
+			position: relative;
+			padding: 0 .5em;
+			transition: border-color 0s linear 5s;
+		}
+
+		.hidden-until-hover:before {
+			content: "(hover to reveal)";
+			position: absolute;
+			opacity: .5;
+			text-align: center;
+			left: 0;
+			top: 0;
+			width: 100%;
+			overflow: hidden;
+			transition: width 0s linear 5s;
+		}
+
+		.hidden-until-hover>* {
+			visibility: hidden;
+			transition: visibility 0s linear 5s;
+		}
+
+		.hidden-until-hover:hover {
+			transition: border-color 0s linear 1s;
+			border-color: transparent;
+		}
+
+		.hidden-until-hover:hover:before {
+			content: "( keep hovering )";
+			transition: width 0s linear 1s;
+			width: 0;
+		}
+
+		.hidden-until-hover:hover>* {
+			transition: visibility 0s linear 1s;
+			visibility: visible;
+		}
+
+		.warning:not(.warning-active) {
+			transition: color 1s, opacity 1s;
+		}
+
+		.warning-active {
+			color: #ff0000;
+			opacity: 1;
+		}
+
+		.star-count {
+			color: #ffff66;
+		}
+
+		.supporter-badge {
+			color: #ffff66;
+		}
+
+		a.supporter-badge:hover,
+		a.supporter-badge:focus {
+			text-decoration: none;
+			color: #ffffcc;
+			text-shadow: 0 0 5px #ffff66;
+		}
+
+		.sponsor-badge {
+			color: #79a2d8;
+		}
+
+		a.sponsor-badge:hover,
+		a.sponsor-badge:focus {
+			text-decoration: none;
+			color: #ccdbed;
+			text-shadow: 0 0 5px #79a2d8;
+		}
+
+		#sidebar {
+			width: 200px;
+			float: right;
+			margin: 0 15px 2em 2em;
+			position: relative;
+			z-index: 10;
+		}
+
+		#sponsor {
+			margin-bottom: 2.5em;
+		}
+
+		header {
+			white-space: nowrap;
+			cursor: default;
+			z-index: 100;
+			margin-bottom: 2em;
+		}
+
+		header h1 {
+			display: inline-block;
+			margin: 0;
+			padding-right: 1em;
+		}
+
+		header h1 a,
+		header h1 span {
+			display: inline-block;
+			text-decoration: none;
+			color: #00cc00;
+			text-shadow: 0 0 2px #00cc00, 0 0 5px #00cc00;
+		}
+
+		header h1 a:hover,
+		header h1 a:focus {
+			color: #99ff99;
+			text-shadow: 0 0 2px #99ff99, 0 0 5px #99ff99;
+		}
+
+		header h1.title-event .title-event-wrap {
+			opacity: .33;
+			white-space: pre;
+		}
+
+		header .user {
+			display: inline-block;
+			padding-left: 1em;
+		}
+
+		header nav {
+			display: inline-block;
+		}
+
+		header nav ul {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+			display: inline-block;
+		}
+
+		header nav li {
+			display: inline-block;
+			padding: 0 .6em;
+		}
+
+		header nav a {
+			display: inline-block;
+			text-decoration: none;
+			outline: none;
+		}
+
+		input[type="text"],
+		textarea {
+			background: transparent;
+			color: inherit;
+			border: 1px solid #666666;
+			background: #10101a;
+			padding: 0 2px;
+			font-family: inherit;
+			font-size: inherit;
+			margin: 0;
+		}
+
+		textarea {
+			vertical-align: top;
+		}
+
+		label img {
+			vertical-align: bottom;
+			position: relative;
+			top: -3px;
+			margin-right: .3em;
+		}
+
+		input[type="radio"] {
+			display: none;
+		}
+
+		input[type="radio"]~span {
+			cursor: pointer;
+			display: inline-block;
+		}
+
+		input[type="radio"]~span:before {
+			content: "( ) ";
+		}
+
+		input[type="radio"]~span:hover,
+		input[type="radio"]~span:focus {
+			background-color: #19193b;
+		}
+
+		input[type="radio"]:checked~span {
+			color: #ffffff;
+		}
+
+		input[type="radio"]:checked~span:before {
+			content: "(O) ";
+		}
+
+		input[type="checkbox"] {
+			display: none;
+		}
+
+		input[type="checkbox"]~span {
+			cursor: pointer;
+			display: inline-block;
+		}
+
+		input[type="checkbox"]~span:before {
+			content: "[ ] ";
+		}
+
+		input[type="checkbox"]~span:hover,
+		input[type="checkbox"]~span:focus {
+			background-color: #19193b;
+		}
+
+		input[type="checkbox"]:checked~span {
+			color: #ffffff;
+		}
+
+		input[type="checkbox"]:checked~span:before {
+			content: "[X] ";
+		}
+
+		input[type="checkbox"]:disabled~span {
+			opacity: .3;
+			cursor: default;
+		}
+
+		input[type="checkbox"]:disabled~span:before {
+			content: "[-] ";
+		}
+
+		input[type="checkbox"]:disabled~span:hover {
+			background-color: transparent;
+		}
+
+
+		input[type="submit"] {
+			background: transparent;
+			border: 0;
+			font-family: inherit;
+			font-size: inherit;
+			margin: 0;
+			padding: 0;
+			color: #009900;
+			cursor: pointer;
+		}
+
+		input[type="submit"]:hover,
+		input[type="submit"]:focus {
+			color: #99ff99;
+		}
+
+		*::-moz-focus-inner {
+			padding: 0;
+			border: 0
+		}
+
+		article {
+			width: 45em;
+			margin-bottom: 2em;
+			margin-top: 2em;
+		}
+
+		article:first-of-type {
+			margin-top: 0;
+		}
+
+		article h2 {
+			color: #ffffff;
+			margin-top: 1em;
+			margin-bottom: 1em;
+			white-space: nowrap;
+		}
+
+		article h2+* {
+			margin-top: 0;
+		}
+
+		article em {
+			color: #ffffff;
+			font-style: normal;
+			text-shadow: 0 0 5px #ffffff;
+		}
+
+		article em.star {
+			color: #ffff66;
+			font-style: normal;
+			text-shadow: 0 0 5px #ffff66;
+		}
+
+		article a {
+			white-space: nowrap;
+		}
+
+		article .aside {
+			opacity: .6;
+		}
+
+		article ul {
+			list-style-type: none;
+			padding: 0;
+		}
+
+		article li {
+			padding-left: 2.5em;
+			position: relative;
+		}
+
+		article li:before {
+			content: "\00a0\00a0-\00a0";
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+		.day-success {
+			color: #ffff66;
+			text-shadow: 0 0 5px #ffff66;
+		}
+
+		form#settings input[type="radio"]~span {
+			min-width: 30em;
+		}
+
+		form#settings input[type="checkbox"]~span {
+			min-width: 30em;
+		}
+
+		.share {
+			color: #009900;
+			cursor: default;
+			transition: color .2s 1s;
+			/*position: relative;*/
+		}
+
+		.share:hover,
+		.share:focus-within {
+			color: #aaffaa;
+			transition: color .2s 0s;
+		}
+
+		.share .share-content {
+			/*position: absolute; background: #0f0f23;*/
+			display: inline-block;
+			vertical-align: text-bottom;
+			white-space: nowrap;
+			overflow: hidden;
+			max-width: 0;
+			transition: max-width .2s 1s;
+		}
+
+		.share .share-content:before {
+			content: "\00a0";
+		}
+
+		.share .share-content:after {
+			/*content: "]";*/
+		}
+
+		.share:hover .share-content,
+		.share:focus-within .share-content {
+			max-width: 45em;
+			transition: max-width .2s 0s;
+		}
+
+		.puzzle-input {
+			border: 1px solid #999999;
+			background: #333333;
+			color: #ffffff;
+			text-shadow: 0 0 5px #ffffff;
+		}
+
+		.calendar {
+			cursor: default;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: -moz-none;
+			-o-user-select: none;
+			user-select: none;
+		}
+
+		.calendar>span {
+			color: #333333;
+		}
+
+		.calendar>a {
+			text-decoration: none;
+			color: #666666;
+			outline: none;
+			cursor: default;
+		}
+
+		.calendar a:hover,
+		.calendar a:focus {
+			background-color: #1e1e46;
+			background-color: rgba(119, 119, 165, .2);
+			cursor: pointer;
+		}
+
+		#calendar-countdown {
+			padding-left: .5em;
+			color: #cccccc;
+		}
+
+		.calendar .calendar-day {
+			color: #666666;
+		}
+
+		.calendar a .calendar-day {
+			color: #cccccc;
+		}
+
+		.calendar a .calendar-mark-complete,
+		.calendar a .calendar-mark-verycomplete {
+			visibility: hidden;
+		}
+
+		.calendar a.calendar-complete .calendar-mark-complete,
+		.calendar a.calendar-verycomplete .calendar-mark-complete {
+			visibility: visible;
+			color: #ffff66;
+		}
+
+		.calendar a.calendar-verycomplete .calendar-mark-verycomplete {
+			visibility: visible;
+			color: #ffff66;
+		}
+
+		.calendar .calendar-day-new {
+			animation: anim-day-new 5s;
+		}
+
+		.calendar .calendar-day-new .calendar-day {
+			animation: anim-day-new-day 5s;
+		}
+
+		@keyframes anim-day-new {
+			0% {
+				color: #333333;
+				text-shadow: 0 0 5px transparent;
+			}
+
+			25% {
+				color: #ffffff;
+				text-shadow: 0 0 5px #ffffff;
+			}
+
+			100% {
+				color: #666666;
+				text-shadow: 0 0 5px transparent;
+			}
+		}
+
+		@keyframes anim-day-new-day {
+			0% {
+				color: #666666;
+				text-shadow: 0 0 5px transparent;
+			}
+
+			25% {
+				color: #ffffff;
+				text-shadow: 0 0 5px #ffffff;
+			}
+
+			100% {
+				color: #cccccc;
+				text-shadow: 0 0 5px transparent;
+			}
+		}
+
+		.eventlist-event {
+			white-space: pre;
+		}
+
+		.stats>span,
+		.stats>span .stats-firstonly,
+		.stats>span .stats-both {
+			color: #666666;
+		}
+
+		.stats>a {
+			color: #cccccc;
+			min-width: 35em;
+			display: inline-block;
+		}
+
+		.stats>a:hover,
+		.stats>a:focus {
+			background-color: #1e1e46;
+		}
+
+		.stats-firstonly {
+			color: #9999cc;
+		}
+
+		.stats-both {
+			color: #ffff66;
+		}
+
+		.leaderboard-daylinks {
+			cursor: default;
+		}
+
+		.leaderboard-daylinks-selected {
+			color: #ffffff;
+			text-shadow: 0 0 5px #ffffff;
+		}
+
+		.leaderboard-daydesc-first {
+			color: #9999cc;
+		}
+
+		.leaderboard-daydesc-both {
+			color: #ffff66;
+		}
+
+		.leaderboard-entry {
+			white-space: pre;
+		}
+
+		.leaderboard-entry .leaderboard-totalscore {
+			color: #ffffff;
+		}
+
+		.leaderboard-anon {
+			opacity: .6;
+		}
+
+		.leaderboard-userphoto {
+			display: inline-block;
+			height: 20px;
+			width: 20px;
+			margin: 0 .5em;
+			text-align: center;
+		}
+
+		.leaderboard-userphoto img {
+			height: 20px;
+			max-width: 20px;
+			vertical-align: middle;
+			position: relative;
+			top: -2px;
+		}
+
+		.leaderboard-time {
+			opacity: .5;
+		}
+
+		.privboard-row {
+			white-space: pre;
+		}
+
+		.privboard-name {
+			vertical-align: text-bottom;
+		}
+
+		.privboard-days>span {
+			display: inline-block;
+			color: #333333;
+		}
+
+		.privboard-days>a {
+			display: inline-block;
+		}
+
+		.privboard-star-locked {
+			visibility: hidden;
+		}
+
+		.privboard-star-unlocked {
+			color: #333333;
+		}
+
+		.privboard-star-firstonly {
+			color: #9999cc;
+		}
+
+		.privboard-star-both {
+			color: #ffff66;
+		}
+
+		.privboard-delbtn {
+			opacity: .33;
+		}
+
+		.privboard-row:hover .privboard-delbtn {
+			opacity: 1;
+		}
+
+		.sponsors {
+			width: 46em;
+			/*76 characters*/
+		}
+
+		.sponsor {
+			margin: 1em 0;
+		}
+	</style>
+	<link rel="shortcut icon"
+		href="data:image/png;base64,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OHt6+LevD545Y0bSvTN7eOcElg719JnZyqqtKatX69RKgsAJDMOWflPUG1hbmy8MALwHKy7mEpKor06DQwwrKU0sKU0cMPsO/mngnbqbpkFxxC6Koji2IsORDAzO0gB4RIwZezuVEsbH06WluorypLmPqu5msi5u/jymo90xpigde0WGQNZh7x/e7Dcu4nLnKOSPkmeQNTVpNTVpject9fXW5ovWtnbngFlgCARxIM+f77IA+kogj960ywd0SvDQbDb3a/Erl6nLVnABn5E3023vhc9Gevt8d3HyHgAgDq50OJ/64dU5OeySfO13V2lKShPvmrPYyC02cqYhZ+sX3uam4RMN1samkUDEZJg7SI+z2KgFeA8G3EJWTtyK5fFLCrm8PC49Y2x6tf3LeeTI4LlzwxdbebtTVIxDQhBKaVGjJvUG9umKpE1Ppo45QRAFswX19Yy8W2d6522TySos/5au/tjcwISGj4fKln1OK/FV30lev0G7cB6n5tCYV45hWON5y569N1pancNmn+ATJvY3EFZtNF5DVm6Z+fSWFK1moqhy7OhA9zVfTU1aYOTfV2xHjpo3b9VzanriL778Sm9TC6+gQw534RZ3eTdSxRHlG5MrypMMGfTEBwqlOXhpoJ+vP2nZve9Gb6+bpbCwihcgsuo078EYApWV6b69MvEbRmXWQ8oIFjENOT+94D7VYD5+3NLf42BUeAR1FzCZ8rokIoLEs7PZ/EXq9d+fmb9QHeIXb990vfnWrY/P2louOy0WQTEJK4Ko/D4AIVQp8dwcxbM/1peVJEwws6Pdsmv3zY9OWR08EnxCFLLG6P7AwbvRE2sSDr79yJhPX/h59669fQ90Os1pyeqqlPGeVv0oI9NAP9AAnnvWMD9PMy68Gfie/TnR3REnGW201sov4HbuSFewQfVY995g46fmxxbEB0YyMxgE0akPhsgoFRujZgG1injhJ3r5C+56j2ff/uvVNdeaW4blMyu3pBaXJUQslaYKwMYNKY8X6uSvp937+843OyEOVq+9YrN7g4mJinrp+XSNBn9QKCSJaMECzaG35tyRFBwz1z7XPRrgXbzY3eVatUoLof++DHrGYRebPrOjSSv9yQJAEuI46m+Hc7U6Sp75rFvfIfrEQA58/UtXPIfLnSH3UerMGevtQd99ppDLB369M0OeSgiisHbDFYvFK88LXD604zf9l9sccpmyd0/OfaaQJKJ1a5KqqtMYmVjZ9FT7J40j/53VDFnEzg7H99ZqR4UihmGpKRQJsQ9PW0niPgEwGBQv70zPzAhe/8FDN/e8dkv0jaH9SAK72uHECaKoiAsMFhbG//2sravHHTGGyCkEIdy0KeGxBVo59Xfs6nM7xqU1qyFe/FXvsaMD8sE3XpulT6YnLv5E3wKSiJYUca/uC5LY4/VUVl2/0GSVK+Mx7fDJefuyYi4p0e/0uhm0QiGdPG39nwKgFPjJj/JUcUHq7/td34ED/ROf3p/wOcWua+6VK7iA5zyco/78En+tyzmeco8yAN6NjhycO39ekPrNLcNrnuikyFC37+lxaZRUQYE/a6JIkDmLrW8YcvHilAOQRLTxydTqbTMBgAFhtays3ecJb+9/NNsLC1SGNHa0q0+lvS7hXKNtap1YElHWw6qf1aZD6Le+1+fdtq3bPOgJd2OLRXimuss05AyMbN8+q6hIy3umEgCrImufSZZXcg78frC+wRaBFylo7J+XnJWVXfLBP76alTGTCCsihUeh5SWaX7yYHei2XrJtrerknWJkAYQksM6rbgKgxYv9bwalmszKVByqu4UTMPoA1Cr8/eO5cQp/+LPZvRWbuzo7nJP8C8ely/yi/KAzpKQxpgFf6xf2EJcNg0IJWrLnS7ck+e979yt9Zz80hRI37+UM3ud/2n3L5M+3B/p5URRDD6dhWMBiE/78VwuOMKNRVfeeaVtttyIuCnICANB3w4MhuLRY/ZfDQ1W1XSdOWkKPyGFXJXACLzAq2y67LFZvFKUtrSCMC9VNF+38iDcsq4Lp/41OA5gGMA1gGsD/NYD/APjR6Q2ywVIUAAAAAElFTkSuQmCC" />
+	<script>window.addEventListener('click', function (e, s, r) {if (e.target.nodeName === 'CODE' && e.detail === 3) {s = window.getSelection(); s.removeAllRanges(); r = document.createRange(); r.selectNodeContents(e.target); s.addRange(r);} });</script>
+</head><!--
+
+
+
+
+Oh, hello!  Funny seeing you here.
+
+I appreciate your enthusiasm, but you aren't going to find much down here.
+There certainly aren't clues to any of the puzzles.  The best surprises don't
+even appear in the source until you unlock them for real.
+
+Please be careful with automated requests; I'm not a massive company, and I can
+only take so much traffic.  Please be considerate so that everyone gets to play.
+
+If you're curious about how Advent of Code works, it's running on some custom
+Perl code. Other than a few integrations (auth, analytics, social media), I
+built the whole thing myself, including the design, animations, prose, and all
+of the puzzles.
+
+The puzzles are most of the work; preparing a new calendar and a new set of
+puzzles takes all of my free time for months every year. A lot of effort went
+into building this thing - I hope you're enjoying playing it as much as I
+enjoyed making it for you!
+
+If you'd like to hang out, I'm @was.tl on Bluesky and @ericwastl@hachyderm.io
+on Mastodon.
+
+- Eric Wastl
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
+
+<body>
+	<header>
+		<div>
+			<h1 class="title-global"><a href="https://adventofcode.com/">Advent of Code</a></h1>
+			<nav>
+				<ul>
+					<li><a href="https://adventofcode.com/2025/about">[About]</a></li>
+					<li><a href="https://adventofcode.com/2025/events">[Events]</a></li>
+					<li><a href="https://adventofcode.com/2025/shop">[Shop]</a></li>
+					<li><a href="https://adventofcode.com/2025/settings">[Settings]</a></li>
+					<li><a href="https://adventofcode.com/2025/auth/logout">[Log Out]</a></li>
+				</ul>
+			</nav>
+			<div class="user">Coding4Hours <span class="star-count">24*</span></div>
+		</div>
+		<div>
+			<h1 class="title-event">&nbsp;&nbsp;&nbsp;<span class="title-event-wrap">$year=</span><a
+					href="https://adventofcode.com/2025">2025</a><span class="title-event-wrap">;</span></h1>
+			<nav>
+				<ul>
+					<li><a href="https://adventofcode.com/2025">[Calendar]</a></li>
+					<li><a href="https://adventofcode.com/2025/support">[AoC++]</a></li>
+					<li><a href="https://adventofcode.com/2025/sponsors">[Sponsors]</a></li>
+					<li><a href="https://adventofcode.com/2025/leaderboard/private">[Leaderboards]</a></li>
+					<li><a href="https://adventofcode.com/2025/stats">[Stats]</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<div id="sidebar">
+		<div id="sponsor">
+			<div class="quiet">Our <a href="https://adventofcode.com/2025/sponsors">sponsors</a> help make Advent of Code
+				possible:</div>
+			<div class="sponsor"><a
+					href="https://adventofcode.com/2025/sponsors/redirect?url=https%3A%2F%2Faoc%2Einfi%2Enl%2F%3Fmtm%5Fcampaign%3Daoc2025%26mtm%5Fsource%3Daoc"
+					target="_blank" onclick="if(ga)ga('send','event','sponsor','sidebar',this.href);" rel="noopener">Infi</a> -
+				Kun jij de bomen door het bos z13n!? Puzzel verder en help boswachter Brian zijn bos in leven te houden in het
+				donker van de Noordpool.</div>
+		</div>
+	</div><!--/sidebar-->
+
+	<main>
+		<article>
+			<p>You help the Elves decorate the Christmas trees with all <span class="day-success">24 stars</span>! Now, the
+				Elves will have plenty of time to prepare for Christmas, and you get a well-deserved break.</p>
+			<p class="aside">Congratulations! You've finished every puzzle in Advent of Code 2025! I hope you had as much fun
+				solving them as I had making them for you. I'd love to hear about your adventure; you can get in touch with me
+				via contact info on <a href="https://was.tl/" target="_blank">my website</a> or through <a
+					href="https://bsky.app/profile/was.tl" target="_blank">Bluesky</a> or <a
+					href="https://hachyderm.io/@ericwastl" target="_blank">Mastodon</a>.</p>
+			<p class="aside">If you'd like to see more things like this in the future, please consider <a
+					href="https://adventofcode.com/2025/support" target="_blank">supporting</a> Advent of Code and sharing it with
+				others.</p>
+			<p class="aside">I've <span style="border-bottom:1px dotted #ffff66;"
+					title="Yep, just like that.  There's at least one in the description for each day.">highlighted</span> the
+				easter eggs in each puzzle, just in case you missed any. Hover your mouse over them, and the easter egg will
+				appear.</p>
+			<p>You can <span class="share">[Share<span class="share-content">on
+						<a href="https://bsky.app/intent/compose?text=I+just+completed+all+12+days+of+Advent+of+Code+2025%21+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F"
+							target="_blank">Bluesky</a>
+						<a href="https://twitter.com/intent/tweet?text=I+just+completed+all+12+days+of+Advent+of+Code+2025%21&amp;url=https%3A%2F%2Fadventofcode%2Ecom%2F&amp;related=ericwastl&amp;hashtags=AdventOfCode"
+							target="_blank">Twitter</a>
+						<a href="javascript:void(0);"
+							onclick="var ms; try{ms=localStorage.getItem('mastodon.server')}finally{} if(typeof ms!=='string')ms=''; ms=prompt('Mastodon Server?',ms); if(typeof ms==='string' && ms.length){this.href='https://'+ms+'/share?text=I+just+completed+all+12+days+of+Advent+of+Code+2025%21+%23AdventOfCode+https%3A%2F%2Fadventofcode%2Ecom%2F';try{localStorage.setItem('mastodon.server',ms);}finally{}}else{return false;}"
+							target="_blank">Mastodon</a></span>]</span> this moment with your friends or <a
+					href="https://adventofcode.com/2025">[Go Check on
+					Your Calendar]</a>.
+		</article>
+		<style>
+			.calendar-bkg {
+				background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+			}
+
+			.sf {
+				position: fixed;
+				animation: anim-sf0 linear 20s infinite;
+				z-index: -1;
+			}
+
+			.sf:before {
+				content: "*";
+			}
+
+			.sf.sf0 {
+				color: #ffffff;
+			}
+
+			.sf.sf1 {
+				color: #cccccc;
+				animation-name: anim-sf1;
+			}
+
+			.sf.sf2 {
+				color: #999999;
+				animation-name: anim-sf2;
+			}
+
+			.sf.sf3 {
+				color: #666666;
+				animation-name: anim-sf3;
+			}
+
+			@keyframes anim-sf0 {
+				0% {
+					transform: translate(0, 0) rotate(0) scale(1.0, 1.0);
+				}
+
+				95% {
+					transform: translate(8em, 100vh) rotate(1turn) scale(1.0, 1.0);
+				}
+
+				100% {
+					transform: translate(8em, 100vh) rotate(1turn) scale(0.0, 0.0);
+				}
+			}
+
+			@keyframes anim-sf1 {
+				0% {
+					transform: translate(0, 0) rotate(0) scale(1.0, 1.0);
+				}
+
+				95% {
+					transform: translate(6em, 100vh) rotate(1turn) scale(1.0, 1.0);
+				}
+
+				100% {
+					transform: translate(6em, 100vh) rotate(1turn) scale(0.0, 0.0);
+				}
+			}
+
+			@keyframes anim-sf2 {
+				0% {
+					transform: translate(0, 0) rotate(0) scale(1.0, 1.0);
+				}
+
+				95% {
+					transform: translate(4em, 100vh) rotate(1turn) scale(1.0, 1.0);
+				}
+
+				100% {
+					transform: translate(4em, 100vh) rotate(1turn) scale(0.0, 0.0);
+				}
+			}
+
+			@keyframes anim-sf3 {
+				0% {
+					transform: translate(0, 0) rotate(0) scale(1.0, 1.0);
+				}
+
+				95% {
+					transform: translate(2em, 100vh) rotate(1turn) scale(1.0, 1.0);
+				}
+
+				100% {
+					transform: translate(2em, 100vh) rotate(1turn) scale(0.0, 0.0);
+				}
+			}
+		</style>
+		<div class="sf sf2" style="top:-3.13em; left:82.79vw; animation-delay:-19.31s;"></div>
+		<div class="sf sf1" style="top:-2.10em; left:34.70vw; animation-delay:-5.55s;"></div>
+		<div class="sf sf1" style="top:-2.95em; left:47.14vw; animation-delay:-15.63s;"></div>
+		<div class="sf sf2" style="top:-3.65em; left:39.81vw; animation-delay:-6.56s;"></div>
+		<div class="sf sf2" style="top:-3.49em; left:30.42vw; animation-delay:-9.77s;"></div>
+		<div class="sf sf0" style="top:-1.44em; left:38.75vw; animation-delay:-11.42s;"></div>
+		<div class="sf sf0" style="top:-1.54em; left:68.68vw; animation-delay:-7.38s;"></div>
+		<div class="sf sf2" style="top:-3.27em; left:25.39vw; animation-delay:-4.25s;"></div>
+		<div class="sf sf0" style="top:-1.87em; left:53.82vw; animation-delay:-10.32s;"></div>
+		<div class="sf sf0" style="top:-1.43em; left:53.83vw; animation-delay:-6.09s;"></div>
+		<div class="sf sf0" style="top:-1.81em; left:46.22vw; animation-delay:-17.94s;"></div>
+		<div class="sf sf1" style="top:-2.30em; left:58.40vw; animation-delay:-9.08s;"></div>
+		<div class="sf sf3" style="top:-4.07em; left:92.26vw; animation-delay:-4.09s;"></div>
+		<div class="sf sf3" style="top:-4.89em; left:60.01vw; animation-delay:-16.93s;"></div>
+		<div class="sf sf3" style="top:-4.87em; left:37.95vw; animation-delay:-12.26s;"></div>
+		<div class="sf sf1" style="top:-2.98em; left:41.58vw; animation-delay:-7.25s;"></div>
+		<div class="sf sf3" style="top:-5.00em; left:65.19vw; animation-delay:-10.50s;"></div>
+		<div class="sf sf2" style="top:-3.77em; left:4.33vw; animation-delay:-19.03s;"></div>
+		<div class="sf sf3" style="top:-4.44em; left:78.21vw; animation-delay:-8.24s;"></div>
+		<div class="sf sf3" style="top:-4.10em; left:13.04vw; animation-delay:-6.02s;"></div>
+		<div class="sf sf2" style="top:-3.19em; left:37.76vw; animation-delay:-17.75s;"></div>
+		<div class="sf sf0" style="top:-1.40em; left:61.31vw; animation-delay:-5.96s;"></div>
+		<div class="sf sf3" style="top:-4.66em; left:11.24vw; animation-delay:-4.34s;"></div>
+		<div class="sf sf0" style="top:-1.14em; left:54.21vw; animation-delay:-14.42s;"></div>
+		<div class="sf sf0" style="top:-1.30em; left:46.82vw; animation-delay:-11.81s;"></div>
+		<div class="sf sf3" style="top:-5.00em; left:68.57vw; animation-delay:-2.04s;"></div>
+		<div class="sf sf2" style="top:-3.90em; left:4.70vw; animation-delay:-11.77s;"></div>
+		<div class="sf sf1" style="top:-2.55em; left:26.75vw; animation-delay:-14.43s;"></div>
+		<div class="sf sf3" style="top:-4.45em; left:88.29vw; animation-delay:-9.37s;"></div>
+		<div class="sf sf0" style="top:-1.06em; left:92.58vw; animation-delay:-5.16s;"></div>
+		<div class="sf sf3" style="top:-4.71em; left:23.09vw; animation-delay:-1.37s;"></div>
+		<div class="sf sf3" style="top:-4.89em; left:13.26vw; animation-delay:-13.83s;"></div>
+		<div class="sf sf3" style="top:-4.22em; left:29.98vw; animation-delay:-7.42s;"></div>
+		<div class="sf sf1" style="top:-2.89em; left:18.77vw; animation-delay:-13.83s;"></div>
+		<div class="sf sf1" style="top:-2.61em; left:79.61vw; animation-delay:-0.30s;"></div>
+		<div class="sf sf3" style="top:-4.18em; left:79.93vw; animation-delay:-17.13s;"></div>
+		<div class="sf sf0" style="top:-1.72em; left:93.15vw; animation-delay:-6.98s;"></div>
+		<div class="sf sf2" style="top:-3.34em; left:73.66vw; animation-delay:-17.28s;"></div>
+		<div class="sf sf2" style="top:-3.52em; left:69.12vw; animation-delay:-18.45s;"></div>
+		<div class="sf sf3" style="top:-4.75em; left:93.54vw; animation-delay:-15.87s;"></div>
+		<div class="sf sf2" style="top:-3.92em; left:4.65vw; animation-delay:-13.57s;"></div>
+		<div class="sf sf2" style="top:-3.49em; left:30.61vw; animation-delay:-12.58s;"></div>
+		<div class="sf sf0" style="top:-1.99em; left:3.28vw; animation-delay:-9.84s;"></div>
+		<div class="sf sf3" style="top:-4.33em; left:63.62vw; animation-delay:-4.67s;"></div>
+		<div class="sf sf3" style="top:-4.34em; left:75.09vw; animation-delay:-2.05s;"></div>
+		<div class="sf sf3" style="top:-4.80em; left:4.57vw; animation-delay:-17.42s;"></div>
+		<div class="sf sf1" style="top:-2.56em; left:67.97vw; animation-delay:-19.07s;"></div>
+		<div class="sf sf1" style="top:-2.23em; left:79.40vw; animation-delay:-14.30s;"></div>
+		<div class="sf sf0" style="top:-1.66em; left:72.66vw; animation-delay:-18.31s;"></div>
+		<div class="sf sf2" style="top:-3.09em; left:64.67vw; animation-delay:-12.53s;"></div>
+		<div class="sf sf3" style="top:-4.72em; left:41.64vw; animation-delay:-7.66s;"></div>
+		<div class="sf sf0" style="top:-1.77em; left:75.11vw; animation-delay:-18.10s;"></div>
+		<div class="sf sf3" style="top:-4.89em; left:50.42vw; animation-delay:-15.49s;"></div>
+		<div class="sf sf2" style="top:-3.36em; left:2.61vw; animation-delay:-12.50s;"></div>
+		<div class="sf sf3" style="top:-4.57em; left:12.11vw; animation-delay:-0.75s;"></div>
+		<div class="sf sf1" style="top:-2.40em; left:60.59vw; animation-delay:-13.13s;"></div>
+		<div class="sf sf1" style="top:-2.16em; left:89.12vw; animation-delay:-7.24s;"></div>
+		<div class="sf sf1" style="top:-2.12em; left:48.38vw; animation-delay:-8.79s;"></div>
+		<div class="sf sf0" style="top:-1.02em; left:78.03vw; animation-delay:-18.84s;"></div>
+		<div class="sf sf0" style="top:-1.22em; left:53.35vw; animation-delay:-2.35s;"></div>
+		<div class="sf sf2" style="top:-3.26em; left:26.09vw; animation-delay:-5.62s;"></div>
+		<div class="sf sf0" style="top:-1.99em; left:23.52vw; animation-delay:-13.89s;"></div>
+		<div class="sf sf2" style="top:-3.05em; left:70.02vw; animation-delay:-4.99s;"></div>
+		<div class="sf sf1" style="top:-2.68em; left:16.60vw; animation-delay:-9.10s;"></div>
+		<div class="sf sf1" style="top:-2.46em; left:74.53vw; animation-delay:-16.22s;"></div>
+		<div class="sf sf3" style="top:-4.59em; left:50.96vw; animation-delay:-0.31s;"></div>
+		<div class="sf sf0" style="top:-1.55em; left:65.15vw; animation-delay:-2.26s;"></div>
+		<div class="sf sf1" style="top:-2.70em; left:36.69vw; animation-delay:-0.36s;"></div>
+		<div class="sf sf0" style="top:-1.35em; left:31.31vw; animation-delay:-8.08s;"></div>
+		<div class="sf sf3" style="top:-4.03em; left:74.44vw; animation-delay:-13.30s;"></div>
+		<div class="sf sf2" style="top:-3.61em; left:22.32vw; animation-delay:-1.75s;"></div>
+		<div class="sf sf1" style="top:-2.67em; left:47.18vw; animation-delay:-19.92s;"></div>
+		<div class="sf sf3" style="top:-4.62em; left:20.22vw; animation-delay:-0.99s;"></div>
+		<div class="sf sf1" style="top:-2.51em; left:23.71vw; animation-delay:-1.16s;"></div>
+		<div class="sf sf2" style="top:-3.34em; left:24.69vw; animation-delay:-6.04s;"></div>
+		<div class="sf sf3" style="top:-4.86em; left:45.42vw; animation-delay:-17.93s;"></div>
+		<div class="sf sf3" style="top:-4.99em; left:41.14vw; animation-delay:-17.70s;"></div>
+		<div class="sf sf1" style="top:-2.84em; left:16.08vw; animation-delay:-11.84s;"></div>
+		<div class="sf sf2" style="top:-3.62em; left:74.24vw; animation-delay:-18.38s;"></div>
+		<div class="sf sf1" style="top:-2.27em; left:61.33vw; animation-delay:-8.17s;"></div>
+		<div class="sf sf1" style="top:-2.91em; left:84.57vw; animation-delay:-13.75s;"></div>
+		<div class="sf sf0" style="top:-1.86em; left:8.30vw; animation-delay:-9.88s;"></div>
+		<div class="sf sf2" style="top:-3.28em; left:22.04vw; animation-delay:-12.45s;"></div>
+		<div class="sf sf3" style="top:-4.01em; left:16.71vw; animation-delay:-9.21s;"></div>
+		<div class="sf sf2" style="top:-3.51em; left:29.65vw; animation-delay:-2.31s;"></div>
+		<div class="sf sf1" style="top:-2.17em; left:46.46vw; animation-delay:-12.26s;"></div>
+		<div class="sf sf1" style="top:-2.69em; left:51.95vw; animation-delay:-2.98s;"></div>
+		<div class="sf sf2" style="top:-3.68em; left:17.44vw; animation-delay:-10.99s;"></div>
+		<div class="sf sf3" style="top:-4.99em; left:87.41vw; animation-delay:-16.75s;"></div>
+		<div class="sf sf3" style="top:-4.50em; left:5.55vw; animation-delay:-7.16s;"></div>
+		<div class="sf sf1" style="top:-2.72em; left:68.67vw; animation-delay:-2.21s;"></div>
+		<div class="sf sf1" style="top:-2.30em; left:29.26vw; animation-delay:-12.96s;"></div>
+		<div class="sf sf1" style="top:-2.57em; left:10.01vw; animation-delay:-18.51s;"></div>
+		<div class="sf sf3" style="top:-4.78em; left:14.01vw; animation-delay:-4.43s;"></div>
+		<div class="sf sf3" style="top:-4.49em; left:70.38vw; animation-delay:-12.21s;"></div>
+		<div class="sf sf0" style="top:-1.84em; left:1.97vw; animation-delay:-5.33s;"></div>
+		<div class="sf sf3" style="top:-4.45em; left:60.22vw; animation-delay:-2.74s;"></div>
+		<div class="sf sf0" style="top:-1.64em; left:27.11vw; animation-delay:-11.58s;"></div>
+		<div class="sf sf1" style="top:-2.57em; left:94.61vw; animation-delay:-8.33s;"></div>
+		<div class="sf sf1" style="top:-2.44em; left:10.38vw; animation-delay:-9.46s;"></div>
+	</main>
+
+</body>
+
+</html>
